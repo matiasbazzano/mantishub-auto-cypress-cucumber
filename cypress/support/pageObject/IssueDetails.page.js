@@ -28,10 +28,29 @@ class IssueDetailsPage {
         return cy.get('.bug-severity');
     }
 
+    get summaryLabel() {
+        return cy.get('.bug-summary');
+    }
+
+    get descriptionLabel() {
+        return cy.get('.bug-description');
+    }
+
     get uploadedImageComponent() {
         return cy.get('.bug-attachment-preview-image');
     }
 
+    get cloneIssueButton() {
+        return cy.get('input[value="Clone"]');
+    }
+
+    get closeIssueButton() {
+        return cy.get('input[value="Close"]');
+    }
+
+    get deleteIssueButton() {
+        return cy.get('input[value="Delete"]');
+    }
 }
     
 export default new IssueDetailsPage();
