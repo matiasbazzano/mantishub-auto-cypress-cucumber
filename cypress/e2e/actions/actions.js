@@ -22,6 +22,10 @@ const Actions = {
         cy.url().should("include", DeepUrl.myAccount);
     },
 
+    verifyListOfAllIssuesUrl() {
+        cy.url().should("include", DeepUrl.listOfAllIssues);
+    },
+
     loginByApiWithValidCredentials() {
         cy.loginByRequest(LoginData.username, LoginData.password, "loginByRequest");
         cy.visit(DeepUrl.myView);
@@ -30,7 +34,7 @@ const Actions = {
     loginByApiWithInvalidCredentials() {
         cy.loginByRequest(LoginData.invalidUsername, LoginData.invalidPassword, "loginByRequest");
         cy.visit(DeepUrl.myView);
-    }
+    },
 };
 
 export default Actions;

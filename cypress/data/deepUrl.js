@@ -16,6 +16,7 @@ const DeepUrl = {
     chooseProject: `${BaseUrl.base}/login_select_proj_page.php?ref=bug_report_page.php`,
     bugReport: `${BaseUrl.base}/bug_report_page.php`,
     viewIssueDetails: `${BaseUrl.base}/view.php?id=`,
+    listOfAllIssues: `${BaseUrl.base}/view_all_bug_page.php`,
   };
   
   export default DeepUrl;
