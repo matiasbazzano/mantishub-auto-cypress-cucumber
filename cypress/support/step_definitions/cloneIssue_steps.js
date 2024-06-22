@@ -3,7 +3,6 @@ import IssueDetailsPage from "../pageObject/IssueDetails.page";
 import IssueDetailsActions from "../../e2e/actions/issueDetailsActions";
 import ReportIssueActions from "../../e2e/actions/reportIssueActions";
 import Actions from "../../e2e/actions/actions";
-import StoreContent from "../pageObjectContent/storeContent";
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
   When("Clicks the first reported issue on the dashboard", () => {
@@ -35,10 +34,6 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
   });
 
   When("The cloned issue contains the same information as the previous one", () => {
-    IssueDetailsActions.saveClonedIssueDetailsDisplayed();
+    IssueDetailsActions.saveIssueDetailsDisplayed();
     IssueDetailsActions.compareClonedIssueDetails();
-  });
-
-  When("The saved data is removed", () => {
-    StoreContent.clearVariables();
   });

@@ -20,42 +20,29 @@ const IssueDetailsActions = {
         const assignedToLabelLocator = IssueDetailsPage.assignedToLabel;
         const summaryLabelLocator = IssueDetailsPage.summaryLabel;
         const descriptionLabelLocator = IssueDetailsPage.descriptionLabel;
-        StoreContent.saveText(severityLabelLocator, "severityDisplayedLabel");
-        StoreContent.saveText(priorityLabelLocator, "priorityDisplayedLabel"); 
+        StoreContent.saveText(priorityLabelLocator, "priorityDisplayedLabel");
+        StoreContent.saveText(severityLabelLocator, "severityDisplayedLabel"); 
         StoreContent.saveText(assignedToLabelLocator, "assignedToDisplayedLabel");
         StoreContent.saveText(summaryLabelLocator, "summaryDisplayedLabel");
         StoreContent.saveText(descriptionLabelLocator, "descriptionDisplayedLabel");
     },
 
-    saveClonedIssueDetailsDisplayed() {
-        const priorityLabelLocator = IssueDetailsPage.priorityLabel;
-        const severityLabelLocator = IssueDetailsPage.severityLabel;
-        const assignedToLabelLocator = IssueDetailsPage.assignedToLabel;
-        const summaryLabelLocator = IssueDetailsPage.summaryLabel;
-        const descriptionLabelLocator = IssueDetailsPage.descriptionLabel;
-        StoreContent.saveText(priorityLabelLocator, "clonedPriority");
-        StoreContent.saveText(severityLabelLocator, "clonedSeverity");
-        StoreContent.saveText(assignedToLabelLocator, "clonedAssignedTo");
-        StoreContent.saveText(summaryLabelLocator, "clonedSummary");
-        StoreContent.saveText(descriptionLabelLocator, "clonedDescription");
-    },
-
     compareClonedIssueDetails() {
-        const intialPriorityLabel = StoreContent.getVariable("priorityDisplayedLabel");
-        const intialSeverityLabel = StoreContent.getVariable("severityDisplayedLabel");
-        const intialAssignedToLabel = StoreContent.getVariable("assignedToDisplayedLabel");
-        const intialSummaryLabel = StoreContent.getVariable("summaryDisplayedLabel");
-        const intialDescriptionLabel = StoreContent.getVariable("descriptionDisplayedLabel");
-        const clonedPriorityLabel = StoreContent.getVariable("clonedPriority");
-        const clonedSeverityLabel = StoreContent.getVariable("clonedSeverity");
-        const clonedAssignedToLabel = StoreContent.getVariable("clonedAssigned");
-        const clonedSummaryLabel = StoreContent.getVariable("clonedSummary");
-        const clonedDescriptionLabel = StoreContent.getVariable("clonedDescription");
-        expect(intialPriorityLabel).to.include(clonedPriorityLabel);
-        expect(intialSeverityLabel).to.include(clonedSeverityLabel);
-        expect(intialAssignedToLabel).to.include(clonedAssignedToLabel);
-        expect(intialSummaryLabel).to.include(clonedSummaryLabel);
-        expect(intialDescriptionLabel).to.include(clonedDescriptionLabel);
+        const priorityDropdownContentBeforeClone = StoreContent.getVariable("priorityDropdownContent");
+        const severityDropdownContentBeforeClone = StoreContent.getVariable("severityDropdownContent");
+        const assignToDropdownContentBeforeClone = StoreContent.getVariable("assignToDropdownContent");
+        const summaryInputContentBeforeClone = StoreContent.getVariable("summaryInputContent");
+        const descriptionInputContentBeforeClone = StoreContent.getVariable("descriptionInputContent");
+        const clonedPriorityLabel = StoreContent.getVariable("priorityDisplayedLabel");
+        const clonedSeverityLabel = StoreContent.getVariable("severityDisplayedLabel");
+        const clonedAssignedToLabel = StoreContent.getVariable("assignedToDisplayedLabel");
+        const clonedSummaryLabel = StoreContent.getVariable("summaryDisplayedLabel");
+        const clonedDescriptionLabel = StoreContent.getVariable("descriptionDisplayedLabel");
+        expect(clonedPriorityLabel).to.include(priorityDropdownContentBeforeClone);
+        expect(clonedSeverityLabel).to.include(severityDropdownContentBeforeClone);
+        expect(clonedAssignedToLabel).to.include(assignToDropdownContentBeforeClone);
+        expect(clonedSummaryLabel).to.include(summaryInputContentBeforeClone);
+        expect(clonedDescriptionLabel).to.include(descriptionInputContentBeforeClone);
     }
 };
 

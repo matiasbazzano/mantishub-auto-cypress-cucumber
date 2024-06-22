@@ -24,10 +24,6 @@ class StoreContent {
   getVariable(variableName) {
     return this.variables[variableName];
   }
-
-  clearVariables() {
-    this.variables = {};
-  }
 }
 
 export default new StoreContent();

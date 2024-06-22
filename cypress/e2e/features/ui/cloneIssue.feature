@@ -15,7 +15,6 @@ Feature: Clone issue funcionality
     And Check if all the issue data has been copied to the new issue to be created
     And Submits the issue clicking the Submit issue button
     Then The cloned issue contains the same information as the previous one
-    And The saved data is removed
 
     @smoke
     Scenario: The user clones the last issue listed on the dashboard
@@ -27,4 +26,3 @@ Feature: Clone issue funcionality
     And Check if all the issue data has been copied to the new issue to be created
     And Submits the issue clicking the Submit issue button
     Then The cloned issue contains the same information as the previous one
-    And The saved data is removed

@@ -70,16 +70,16 @@ const ReportIssueActions = {
         const intialAssignedToLabel = StoreContent.getVariable("assignedToDisplayedLabel");
         const intialSummaryLabel = StoreContent.getVariable("summaryDisplayedLabel");
         const intialDescriptionLabel = StoreContent.getVariable("descriptionDisplayedLabel");
-        const updatedPriorityDropdownContent = StoreContent.getVariable("priorityDropdownContent");
-        const updatedSeverityDropdownContent = StoreContent.getVariable("severityDropdownContent");
-        const updatedAssignToDropdownContent = StoreContent.getVariable("assignToDropdownContent");
-        const updatedSummaryInputContent = StoreContent.getVariable("summaryInputContent");
-        const updatedDescriptionInputContent = StoreContent.getVariable("descriptionInputContent");
-        expect(intialPriorityLabel).to.include(updatedPriorityDropdownContent);
-        expect(intialSeverityLabel).to.include(updatedSeverityDropdownContent);
-        expect(intialAssignedToLabel).to.include(updatedAssignToDropdownContent);
-        expect(intialSummaryLabel).to.include(updatedSummaryInputContent);
-        expect(intialDescriptionLabel).to.include(updatedDescriptionInputContent);
+        const copiedPriorityDropdownContent = StoreContent.getVariable("priorityDropdownContent");
+        const copiedSeverityDropdownContent = StoreContent.getVariable("severityDropdownContent");
+        const copiedAssignToDropdownContent = StoreContent.getVariable("assignToDropdownContent");
+        const copiedSummaryInputContent = StoreContent.getVariable("summaryInputContent");
+        const copiedDescriptionInputContent = StoreContent.getVariable("descriptionInputContent");
+        expect(intialPriorityLabel).to.include(copiedPriorityDropdownContent);
+        expect(intialSeverityLabel).to.include(copiedSeverityDropdownContent);
+        expect(intialAssignedToLabel).to.include(copiedAssignToDropdownContent);
+        expect(intialSummaryLabel).to.include(copiedSummaryInputContent);
+        expect(intialDescriptionLabel).to.include(copiedDescriptionInputContent);
     }
 };
 
