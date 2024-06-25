@@ -17,7 +17,7 @@ module.exports = defineConfig({
       "cypress/e2e/features/ui/*.feature",
       "cypress/e2e/features/api/*.feature"
     ],
-    baseUrl: "https://cucumber-cypress.mantishub.io/",
+    baseUrl: "https://cucumber-cypress02.mantishub.io/",
     stepDefinitions: "cypress/support/step_definitions/*.{js,ts}",
     defaultCommandTimeout: 20000,
   },

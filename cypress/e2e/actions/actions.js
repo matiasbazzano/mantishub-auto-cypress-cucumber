@@ -35,6 +35,10 @@ const Actions = {
         cy.loginByRequest(LoginData.invalidUsername, LoginData.invalidPassword, "loginByRequest");
         cy.visit(DeepUrl.myView);
     },
+
+    redirectToDashboardPanel() {
+        cy.visit(DeepUrl.myView);
+    },
 };
 
 export default Actions;
