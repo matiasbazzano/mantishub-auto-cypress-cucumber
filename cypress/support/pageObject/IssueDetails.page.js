@@ -28,6 +28,14 @@ class IssueDetailsPage {
         return cy.get('.bug-severity');
     }
 
+    get issueStatusLabel() {
+        return cy.get('.bug-status');
+    }
+
+    get issueResolutionLabel() {
+        return cy.get('.bug-resolution');
+    }
+
     get summaryLabel() {
         return cy.get('.bug-summary');
     }
@@ -50,6 +58,10 @@ class IssueDetailsPage {
 
     get deleteIssueButton() {
         return cy.get('input[value="Delete"]');
+    }
+
+    get issueNotesLabel() {
+        return cy.get('.bugnote-note');
     }
 }
     
