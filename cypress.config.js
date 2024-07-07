@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const cypressOnFix = require('cypress-on-fix');
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
 const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
@@ -6,8 +7,8 @@ const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esb
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
+      on = cypressOnFix(on);
       require('cypress-mochawesome-reporter/plugin')(on);
-      require('@badeball/cypress-cucumber-preprocessor')(on);
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
       });

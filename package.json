@@ -21,5 +21,8 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "step-definitions": "cypress/support/step-definitions"
+  },
+  "dependencies": {
+    "cypress-on-fix": "^1.0.3"
   }
 }

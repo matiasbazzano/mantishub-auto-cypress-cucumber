@@ -16,11 +16,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18.x'
 
       - name: Install cypress and dependencies
         run: |
-          npm install cypress@latest @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor@latest
+          npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor
 
 
       - name: Verify Cypress configuration
