@@ -13,6 +13,13 @@ module.exports = defineConfig({
       await addCucumberPreprocessorPlugin(on, config);
       return config;
     },
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      reportDir: 'cypress/reports/',
+      overwrite: false,
+      html: true,
+      json: true
+    },
     specPattern: [
       "cypress/e2e/features/ui/*.feature",
       "cypress/e2e/features/api/*.feature"
