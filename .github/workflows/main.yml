@@ -1,4 +1,4 @@
-name: job
+name: Job
 
 on:
   push:
@@ -25,12 +25,7 @@ jobs:
       - name: Create directory for reports
         run: mkdir -p cypress/reports/mochawesome
 
-      - name: Run Cypress tests
-        run: |
-          npx cypress run --config-file /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress.config.js
-        continue-on-error: true
-
-      - name: Generate HTML report
+      - name: Run cypress tests and generate mochawesome report
         run: npm run generate-html-report
         continue-on-error: true
 
@@ -38,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CypressHTMLReport
-          path: /home/runner/work/mantisbt-auto/mantisbt-auto/cypress/reports/mochawesome
+          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
         continue-on-error: true
