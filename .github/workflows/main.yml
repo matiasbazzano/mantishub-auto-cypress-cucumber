@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Cypress and dependencies
         run: |
-          npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor
+          npm install -g cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor
 
       - name: Verify Cypress configuration
         run: |
