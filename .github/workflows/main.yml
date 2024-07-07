@@ -25,9 +25,11 @@ jobs:
       - name: Create directory for reports
         run: mkdir -p cypress/reports/mochawesome
 
-      - name: Run cypress tests and generate mochawesome report
-        run: npm run generate-html-report
+      - name: Run Cypress tests and generate Mochawesome report
+        run: |
+          npm run cypress:run -- --reporter cypress-mochawesome-reporter --reporter-options reportDir=/home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome,overwrite=true,html=true
         continue-on-error: true
+
 
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v2
