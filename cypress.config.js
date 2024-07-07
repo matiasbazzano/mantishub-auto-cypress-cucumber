@@ -7,6 +7,7 @@ module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      require('@badeball/cypress-cucumber-preprocessor')(on);
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
       });
@@ -16,7 +17,7 @@ module.exports = defineConfig({
     },
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
-      reportDir: 'cypress/reports/',
+      reportDir: 'cypress/reports/mochawesome',
       overwrite: false,
       html: true
     },
