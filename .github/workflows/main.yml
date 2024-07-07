@@ -18,9 +18,15 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Clear Cypress cache
+        run: npx cypress cache clear
+
       - name: Install Cypress and dependencies
         run: |
           npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator
+
+      - name: Verify esbuild installation
+        run: npm install esbuild
 
       - name: Run Cypress tests and generate Mochawesome report
         run: |
