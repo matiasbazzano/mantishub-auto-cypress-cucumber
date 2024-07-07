@@ -25,7 +25,7 @@ jobs:
       - name: Verify Cypress configuration
         run: |
           echo "Checking Cypress configuration..."
-          cat cypress/cypress.config.js
+          cat /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/cypress.config.js
 
       - name: Create directory for reports
         run: mkdir -p cypress/reports/mochawesome
