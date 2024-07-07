@@ -8,7 +8,7 @@ module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
       on = cypressOnFix(on);
-      require('mochawesome-report-generator/plugin')(on);
+      require('mochawesome-report-generator')(on);
       
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
