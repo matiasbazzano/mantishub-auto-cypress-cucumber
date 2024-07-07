@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: job
 
 on:
   push:
@@ -7,30 +7,30 @@ on:
       - dev
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '20.x'
+          node-version: '14'
 
-      - name: Install Cypress and dependencies
+      - name: Install cypress and dependencies
         run: |
-          npm install -g cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor
+          npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator @badeball/cypress-cucumber-preprocessor
 
       - name: Verify Cypress configuration
         run: |
-          echo "Checking Cypress configuration..."
+          echo "Checking cypress configuration..."
           cat /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress.config.js
 
       - name: Create directory for reports
         run: mkdir -p cypress/reports/mochawesome
 
-      - name: Run Cypress tests and generate Mochawesome report
+      - name: Run Cypress tests and generate mochawesome report
         run: |
           npx cypress run --config-file /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress.config.js --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true
         continue-on-error: true
