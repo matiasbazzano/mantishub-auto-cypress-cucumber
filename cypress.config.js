@@ -4,31 +4,31 @@ const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-pr
 const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
 
 module.exports = defineConfig({
+  plugins: [
+    createBundler(),
+  ],
   e2e: {
     async setupNodeEvents(on, config) {
+      const esbuildOptions = await createEsbuildPlugin(config);
       
-      const bundler = createBundler({
-        plugins: [createEsbuildPlugin(config)],
-      });
-      on("file:preprocessor", bundler);
-      
-      await addCucumberPreprocessorPlugin(on, config);
-      
+      on('file:preprocessor', addCucumberPreprocessorPlugin(config));
+      on('file:preprocessor', createBundler(esbuildOptions));
+
       return config;
     },
-    reporter: 'mochawesome',
+    reporter: 'cucumber',
     reporterOptions: {
-      reportDir: 'cypress/reports/mochawesome',
-      overwrite: true,
-      html: true,
-      json: false
+      cucumber: {
+        output: 'cypress/reports/cucumber/cucumber_report.json',
+        format: 'json',
+        testDir: 'cypress/e2e/features',
+      },
     },
     specPattern: [
-      "cypress/e2e/features/ui/*.feature",
-      "cypress/e2e/features/api/*.feature"
+      'cypress/e2e/features/**/*.feature',
     ],
-    baseUrl: "https://cucumber-cypress02.mantishub.io/",
-    stepDefinitions: "cypress/support/step_definitions/*.{js,ts}",
+    baseUrl: 'https://cucumber-cypress02.mantishub.io/',
+    stepDefinitions: 'cypress/support/step_definitions/*.{js,ts}',
     defaultCommandTimeout: 20000,
   },
 });

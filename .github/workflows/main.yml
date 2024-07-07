@@ -7,37 +7,33 @@ on:
       - dev
 
 jobs:
-  tests:
+  cypress-run:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18.x'
 
-      - name: Install cypress and dependencies
-        run: |
-          npm install cypress
-          npm install -g mochawesome mochawesome-merge mochawesome-report-generator
+      - name: Install dependencies
+        run: npm install
 
       - name: Run cypress tests
+        run: npm run cypress:run
+
+      - name: Generate cucumber HTML report
         run: |
-          npm run cypress:run
-        continue-on-error: true
+          npm install -g cucumber-html-reporter
+          cucumber-json-merge cypress/reports/cucumber/*.json > cypress/reports/cucumber/cucumber_report.json
+          cucumber-html-reporter -o cypress/reports/cucumber/report.html -p cypress/reports/cucumber/cucumber_report.json
 
-      - name: Create directory for reports
-        run: mkdir -p cypress/reports/mochawesome/
-
-      - name: Generate HTML report
-        run: npm run generate-html-report
-        continue-on-error: true
-
-      - name: Upload HTML report as artifact
+      - name: Upload HTML report
         uses: actions/upload-artifact@v2
         with:
-          name: CypressHTMLReport
-          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
-        continue-on-error: true
+          name: cypress-test-results
+          path: |
+            cypress/reports/cucumber/report.html  # Incluir el reporte HTML de Cucumber en los artefactos
