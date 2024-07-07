@@ -30,6 +30,10 @@ jobs:
           npx cypress run --config-file /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress.config.js
         continue-on-error: true
 
+      - name: Generate HTML report
+        run: npm run generate-html-report
+        continue-on-error: true
+
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v2
         with:

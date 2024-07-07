@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "cypress:run": "cypress run",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "generate-html-report": "cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true"
   },
   "keywords": [],
   "author": "",
