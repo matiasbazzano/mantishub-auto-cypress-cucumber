@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  automation_tests:
+  automation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,21 +14,24 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14' 
+          node-version: '14'
 
       - name: Install Cypress and dependencies
         run: |
-          npm install cypress
-          npm install cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator
+          npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator
 
       - name: Run Cypress tests and generate Mochawesome report
         run: |
-          npm run cypress:run -- --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=true,html=true
+          npx cypress run --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=true
+        continue-on-error: true
+
+      - name: Create directory for reports
+        run: mkdir -p cypress/reports/mochawesome
         continue-on-error: true
           
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: CypressHTMLReport
-          path: cypress/reports/report.html
+          path: cypress/reports/mochawesome
         continue-on-error: true

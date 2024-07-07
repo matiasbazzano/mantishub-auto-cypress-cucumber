@@ -17,8 +17,7 @@ module.exports = defineConfig({
     reporterOptions: {
       reportDir: 'cypress/reports/',
       overwrite: false,
-      html: true,
-      json: true
+      html: true
     },
     specPattern: [
       "cypress/e2e/features/ui/*.feature",
