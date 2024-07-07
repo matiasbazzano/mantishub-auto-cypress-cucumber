@@ -27,12 +27,12 @@ jobs:
 
       - name: Run cypress tests and generate mochawesome report
         run: |
-          npm run cypress:run -- --reporter cypress-mochawesome-reporter --reporter-options reportDir=home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome,overwrite=true,html=true
+          npm run cypress:run -- --reporter cypress-mochawesome-reporter --reporter-options reportDir=cypress/reports/mochawesome,reportFilename=results.html,overwrite=true,html=true
         continue-on-error: true
 
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: CypressHTMLReport
-          path: home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
+          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
         continue-on-error: true
