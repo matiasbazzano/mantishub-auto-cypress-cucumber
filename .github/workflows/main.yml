@@ -23,7 +23,7 @@ jobs:
           npm install cypress @bahmutov/cypress-esbuild-preprocessor cypress-mochawesome-reporter @badeball/cypress-cucumber-preprocessor
 
       - name: Create directory for reports
-        run: mkdir -p cypress/reports/mochawesome
+        run: mkdir -p cypress/reports/mochawesome/
 
       - name: Run cypress tests and generate mochawesome report
         run: |
