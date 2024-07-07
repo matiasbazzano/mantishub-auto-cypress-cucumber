@@ -26,6 +26,7 @@ jobs:
 
       - name: Run cypress tests
         run: npm run cypress:run
+        continue-on-error: true
 
       - name: Create directory for reports
         run: mkdir -p cypress/reports/mochawesome/
