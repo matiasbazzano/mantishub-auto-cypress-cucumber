@@ -22,5 +22,8 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "step-definitions": "cypress/support/step-definitions"
+  },
+  "dependencies": {
+    "mochawesome-report-generator": "^6.2.0"
   }
 }
