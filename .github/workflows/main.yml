@@ -23,7 +23,9 @@ jobs:
         run: |
           npm install cypress
           npm install cypress-on-fix
-          npm install -g mochawesome mochawesome-merge mochawesome-report-generator
+          npm install mochawesome 
+          npm install mochawesome-merge 
+          npm install mochawesome-report-generator
 
       - name: Run cypress tests
         run: npm run cypress:run
