@@ -32,13 +32,24 @@ jobs:
         run: mkdir -p cypress/reports/mochawesome/
         continue-on-error: true
 
+      - name: Merge cypress JSON report files
+        run: npm run cypress:merge-reports-json
+        continue-on-error: true
+
       - name: Generate HTML report
-        run: npm run generate-html-report
+        run: npm run cypress:generate-html-report
+        continue-on-error: true
+
+      - name: Upload JSON report as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: CypressJSONReport
+          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome/results.json
         continue-on-error: true
 
       - name: Upload HTML report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: CypressHTMLReport
-          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
+          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome/results.html
         continue-on-error: true
