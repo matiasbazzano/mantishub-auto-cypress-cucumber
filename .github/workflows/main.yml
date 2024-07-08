@@ -25,7 +25,7 @@ jobs:
           npm install cypress-on-fix
           npm install mochawesome 
           npm install mochawesome-merge 
-          npm install mochawesome-report-generator
+          npm install -g mochawesome-report-generator
 
       - name: Run cypress tests
         run: npm run cypress:run
@@ -54,5 +54,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CypressHTMLReport
-          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome/results.html
+          path: /home/runner/work/mantishub-auto-cypress-cucumber/mantishub-auto-cypress-cucumber/cypress/reports/mochawesome
         continue-on-error: true
