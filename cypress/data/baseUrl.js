@@ -1,5 +1,5 @@
 const BaseUrl = {
-    base: "https://cucumber-cypress04.mantishub.io",
+    base: "https://cucumbercypress01.mantishub.io",
   };
   
   export default BaseUrl;
