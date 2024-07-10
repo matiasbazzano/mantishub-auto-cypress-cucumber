@@ -4,9 +4,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:run": "cypress run",
-    "cypress:open": "cypress open",
-    "cypress:merge-reports-json": "mochawesome-merge cypress/reports/mochawesome/*.json -o cypress/reports/mochawesome/results.json",
-    "cypress:generate-html-report": "mochawesome-report-generator --reportDir cypress/reports/mochawesome --reportFilename results.html --inline"
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",

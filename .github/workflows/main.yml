@@ -36,11 +36,11 @@ jobs:
         continue-on-error: true
 
       - name: Merge cypress JSON report files
-        run: npm run cypress:merge-reports-json
+        run: npx mochawesome-merge cypress/reports/mochawesome/*.json -o cypress/reports/mochawesome/results.json
         continue-on-error: true
 
       - name: Generate HTML report
-        run: npm run cypress:generate-html-report
+        run: npx mochawesome-report-generator --reportDir cypress/reports/mochawesome --reportFilename results.html --inline cypress/reports/mochawesome/results.json
         continue-on-error: true
 
       - name: Upload JSON report as artifact
