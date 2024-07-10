@@ -24,6 +24,8 @@
     "step-definitions": "cypress/support/step-definitions"
   },
   "dependencies": {
+    "cypress-on-fix": "^1.0.3",
+    "mochawesome": "^7.1.3",
     "mochawesome-report-generator": "^6.2.0"
   }
 }

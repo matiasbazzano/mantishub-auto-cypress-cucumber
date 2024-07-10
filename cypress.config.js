@@ -1,5 +1,4 @@
 const { defineConfig } = require('cypress');
-const cypressOnFix = require('cypress-on-fix');
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
 const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
@@ -7,8 +6,6 @@ const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
-      on = cypressOnFix(on);
-
       const bundler = createBundler({
         plugins: [createEsbuildPlugin(config)],
       });
@@ -29,7 +26,7 @@ module.exports = defineConfig({
       "cypress/e2e/features/ui/*.feature",
       "cypress/e2e/features/api/*.feature"
     ],
-    baseUrl: "https://cucumber-cypress02.mantishub.io/",
+    baseUrl: "https://cucumber-cypress04.mantishub.io/",
     stepDefinitions: "cypress/support/step_definitions/*.{js,ts}",
     defaultCommandTimeout: 20000,
   },
