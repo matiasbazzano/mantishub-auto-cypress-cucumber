@@ -1,5 +1,5 @@
 @clone-issue @run-all
-Feature: Clone issue funcionality
+Feature: Clone issue functionality
 
     Background:
     Given The user is redirected to the login panel

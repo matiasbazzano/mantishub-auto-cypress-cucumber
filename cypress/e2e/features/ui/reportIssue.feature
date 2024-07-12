@@ -1,5 +1,5 @@
 @report-issue @run-all
-Feature: Report issue funcionality
+Feature: Report issue functionality
 
     Background:
     Given The user is redirected to the login panel

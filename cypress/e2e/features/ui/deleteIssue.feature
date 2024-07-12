@@ -1,5 +1,5 @@
 @delete-issue @run-all
-Feature: Delete issue funcionality
+Feature: Delete issue functionality
 
     Background:
     Given The user is redirected to the login panel
