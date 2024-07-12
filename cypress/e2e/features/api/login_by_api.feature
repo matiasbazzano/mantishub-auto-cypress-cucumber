@@ -1,5 +1,5 @@
 @login-by-api @run-all
-Feature: Login funcionality by API
+Feature: Login functionality by API
 
     @smoke
     Scenario: Log in using valid credentials by API

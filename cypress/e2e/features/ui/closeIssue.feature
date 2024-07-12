@@ -1,5 +1,5 @@
 @close-issue @run-all
-Feature: Close issue funcionality
+Feature: Close issue functionality
 
     Background:
     Given The user is redirected to the login panel

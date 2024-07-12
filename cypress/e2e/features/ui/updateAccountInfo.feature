@@ -1,5 +1,5 @@
 @update-account-info @run-all
-Feature: Update the account data using My Account panel
+Feature: Update the account data functionality
 
     Background:
     Given The user is redirected to the login panel

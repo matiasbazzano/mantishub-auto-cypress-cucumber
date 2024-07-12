@@ -1,5 +1,5 @@
 @login @run-all
-Feature: Login funcionality
+Feature: Login functionality
 
     Background:
     Given The user is redirected to the login panel
