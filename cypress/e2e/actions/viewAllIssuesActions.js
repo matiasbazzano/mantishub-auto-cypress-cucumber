@@ -29,7 +29,7 @@ const ViewAllIssuesActions = {
 
     verifySummaryOfProjectUrl() {
         cy.url().should("include", DeepUrl.summaryOfProject);
-    },
+    }
 };
 
 export default ViewAllIssuesActions;

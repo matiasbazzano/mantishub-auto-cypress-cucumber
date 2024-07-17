@@ -29,5 +29,6 @@ module.exports = defineConfig({
     baseUrl: "https://cucumbercypress01.mantishub.io",
     stepDefinitions: "cypress/support/step_definitions/*.{js,ts}",
     defaultCommandTimeout: 20000,
+    downloadsFolder: 'cypress/downloads'
   },
 });
