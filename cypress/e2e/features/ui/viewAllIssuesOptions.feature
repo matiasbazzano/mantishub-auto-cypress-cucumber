@@ -1,4 +1,4 @@
-@print-reports @run-all
+@view-all-issues @run-all
 Feature: View all issues options
 
     Background:
@@ -15,3 +15,9 @@ Feature: View all issues options
     Scenario: The user checks the summary of the project
     When Clicks the Summary button
     Then The user is the project summary page
+
+    @smoke
+    Scenario: The user downloads the CSV report
+    When Clicks the CSV Export button
+    Then The "csv" file is downloaded
+    And The "downloads" folder is cleaned
