@@ -33,3 +33,7 @@ Then("The {string} file is downloaded", (fileExetension) => {
 When("The {string} folder is cleaned", (folder) => {
     Actions.cleanDirectory(folder);
   });
+
+When("Clicks the Excel Export button", () => {
+    ViewAllIssuesActions.clickExcelExportButton();
+  });

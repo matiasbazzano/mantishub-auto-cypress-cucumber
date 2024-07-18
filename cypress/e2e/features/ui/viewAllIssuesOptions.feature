@@ -21,3 +21,9 @@ Feature: View all issues options
     When Clicks the CSV Export button
     Then The ".csv" file is downloaded
     And The "downloads" folder is cleaned
+
+    @smoke
+    Scenario: The user downloads the Excel export file
+    When Clicks the Excel Export button
+    Then The ".xml" file is downloaded
+    And The "downloads" folder is cleaned
