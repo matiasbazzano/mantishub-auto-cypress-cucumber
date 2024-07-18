@@ -19,5 +19,5 @@ Feature: View all issues options
     @smoke
     Scenario: The user downloads the CSV report
     When Clicks the CSV Export button
-    Then The "csv" file is downloaded
+    Then The ".csv" file is downloaded
     And The "downloads" folder is cleaned
