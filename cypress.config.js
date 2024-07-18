@@ -2,6 +2,8 @@ const { defineConfig } = require('cypress');
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
 const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = defineConfig({
   e2e: {
@@ -13,6 +15,23 @@ module.exports = defineConfig({
       
       await addCucumberPreprocessorPlugin(on, config);
       
+      // Define the task for checking files with a specific extension
+      on('task', {
+        checkFilesInPath({ directory, extension }) {
+          return new Promise((resolve, reject) => {
+            fs.readdir(directory, (err, files) => {
+              if (err) {
+                return reject(err);
+              }
+              const filteredFiles = files.filter(file => {
+                return path.extname(file).toLowerCase() === extension.toLowerCase();
+              });
+              resolve(filteredFiles.length > 0);
+            });
+          });
+        }
+      });
+
       return config;
     },
     reporter: 'mochawesome',

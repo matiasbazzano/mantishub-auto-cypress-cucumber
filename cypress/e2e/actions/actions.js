@@ -42,11 +42,11 @@ const Actions = {
     },
 
     verifyDownloadedFile(fileExtension) {
-        const pattern = `${Paths.downloadsFolder}}`;
-        return cy.exec(`ls ${pattern}`, { failOnNonZeroExit: false }).then((result) => {
-            const commandOutput = result.stdout();
-            expect(commandOutput).to.include(fileExtension);
-        });
+        const path = `${Paths.downloadsFolder}`;
+        cy.wait(10000);
+        cy.task('checkFilesInPath', { directory: path, extension: fileExtension }).then(exists => {
+            expect(exists).to.be.true;
+          });
     },
 
     cleanDirectory(folder) {
